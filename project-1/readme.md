@@ -74,6 +74,10 @@ This project is created for **learning purposes only**.
 
 ---
 
+## output
+
+![alt text](s1.png)
+
 ## 👨‍💻 Author
 
 **Sahil Nerpagar**
