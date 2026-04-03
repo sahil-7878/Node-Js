@@ -34,7 +34,7 @@ It is designed for beginners to understand:
 * 🚀 Express.js
 * 🧩 EJS Template Engine
 * 🎨 HTML, CSS, JavaScript
-* 🗄️ MongoDB (optional)
+* 🗄️ MongoDB (optional).
 
 ---
 
