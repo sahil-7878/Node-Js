@@ -1,0 +1,164 @@
+# 📝 To-Do List App (Node.js + MVC)
+
+✨ A simple and dynamic To-Do List application built using **Node.js**, **Express**, and **EJS** following the **MVC architecture**.
+
+---
+
+## 📖 Overview
+
+This project allows users to manage daily tasks efficiently.
+You can add, delete, and mark tasks as completed.
+
+It is designed for beginners to understand:
+
+* Backend development with Node.js
+* MVC structure
+* Dynamic rendering with EJS
+
+---
+
+## 🚀 Features
+
+* ✅ Add new tasks
+* ✅ View all tasks
+* ✅ Delete tasks
+* ✅ Mark tasks as completed
+* ✅ Clean and responsive UI
+* ✅ MVC folder structure
+
+---
+
+## 🛠️ Tech Stack
+
+* ⚙️ Node.js
+* 🚀 Express.js
+* 🧩 EJS Template Engine
+* 🎨 HTML, CSS, JavaScript
+* 🗄️ MongoDB (optional)
+
+---
+
+## 📂 Project Structure
+
+```id="6rmb82"
+todo-app/
+│
+├── models/           # Task schema
+├── views/            # EJS templates
+│   ├── index.ejs
+│
+├── controllers/      # Business logic
+├── routes/           # App routes
+├── public/           # Static files (CSS, JS)
+│
+├── app.js            # Main server file
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚡ Installation
+
+### 1️⃣ Clone Repository
+
+```bash id="b48o3g"
+git clone https://github.com/your-username/todo-app.git
+cd todo-app
+```
+
+---
+
+### 2️⃣ Install Dependencies
+
+```bash id="qhtlw0"
+npm install
+```
+
+---
+
+### 3️⃣ Run the App
+
+```bash id="jg7s7j"
+node app.js
+```
+
+or (for development)
+
+```bash id="cdpn70"
+nodemon app.js
+```
+
+---
+
+## 🌐 Usage
+
+* Open browser
+* Visit:
+
+```
+http://localhost:3000
+```
+
+* Add tasks
+* Mark them complete
+* Delete when done
+
+---
+
+## 🧠 How It Works
+
+### 🔹 Model
+
+Stores task data (title, description, status)
+
+### 🔹 View
+
+EJS templates display tasks dynamically
+
+### 🔹 Controller
+
+Handles logic (add, delete, update tasks)
+
+---
+
+## 📈 Future Improvements
+
+* 🔐 User Authentication (Login/Register)
+* 📅 Due dates & reminders
+* 🔍 Search & filter tasks
+* 🌙 Dark mode
+* 📊 Dashboard analytics
+
+---
+
+## 🤝 output
+
+![alt text](s1.png)
+
+
+---
+
+## 📜 License
+
+This project is for **learning purposes only**.
+
+---
+
+## 👨‍💻 Author
+
+**Sahil**
+
+---
+
+## ⭐ Support
+
+If you like this project:
+
+⭐ Star the repo
+🍴 Fork it
+📢 Share it
+
+---
+
+💡 *Happy Coding!* 🚀
