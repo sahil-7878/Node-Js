@@ -1,46 +1,77 @@
-const express = require('express');
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
-const PORT = 3000;
 
-app.use(express.urlencoded());
 app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-let ToDoList = [{
-        id: 1,
-        task: "Task 1"
-    }
-];
+let tasks = [];
+let idCounter = 1;
 
-app.get('/', (req, res) => {
-    res.render('index', {
-        ToDoList
+// Dashboard
+app.get("/", (req, res) => {
+    const total = tasks.length;
+    const completed = tasks.filter(t => t.status === "Completed").length;
+    const pending = tasks.filter(t => t.status === "Pending").length;
+
+    res.render("dashboard", { tasks, total, completed, pending });
+});
+
+// Add Task Page
+app.get("/add", (req, res) => {
+    res.render("add-task");
+});
+
+// Add Task Logic
+app.post("/add", (req, res) => {
+    const { title, description, priority } = req.body;
+
+    tasks.push({
+        id: idCounter++,
+        title,
+        description,
+        priority,
+        status: "Pending"
     });
+
+    res.redirect("/");
 });
 
-app.post('/addTask', (req, res) => {
-    const newTask = {
-        task: req.body.task
-    };
-    ToDoList.push(newTask);
-    res.redirect('/');
+// Edit Page
+app.get("/edit/:id", (req, res) => {
+    const task = tasks.find(t => t.id == req.params.id);
+    res.render("edit-task", { task });
 });
 
-app.post('/editTask', (req, res) => {
-    const taskId = req.body.taskId;
-    const updatedTask = req.body.task;
-    const taskIndex = ToDoList.findIndex(task => task.id == taskId);
-    if (taskIndex !== -1) {
-        ToDoList[taskIndex].task = updatedTask;
-    }
-    res.redirect('/');
+// Update Task
+app.post("/edit/:id", (req, res) => {
+    const task = tasks.find(t => t.id == req.params.id);
+
+    task.title = req.body.title;
+    task.description = req.body.description;
+    task.priority = req.body.priority;
+    task.status = req.body.status;
+
+    res.redirect("/");
 });
 
-app.post('/deleteTask', (req, res) => {
-    const taskId = req.body.taskId;
-    ToDoList = ToDoList.filter(task => task.id != taskId);
-    res.redirect('/');
+// Delete Task
+app.get("/delete/:id", (req, res) => {
+    tasks = tasks.filter(t => t.id != req.params.id);
+    res.redirect("/");
 });
 
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
+// Status Change
+app.get("/status/:id", (req, res) => {
+    const task = tasks.find(t => t.id == req.params.id);
+
+    if (task.status === "Pending") task.status = "In Progress";
+    else if (task.status === "In Progress") task.status = "Completed";
+
+    res.redirect("/");
+});
+
+app.listen(3000, () => {
+    console.log("Server running on http://localhost:3000");
 });

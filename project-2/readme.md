@@ -1,164 +1,160 @@
-# 📝 To-Do List App (Node.js + MVC)
+# 🚀 Real-Time Todo Management System
 
-✨ A simple and dynamic To-Do List application built using **Node.js**, **Express**, and **EJS** following the **MVC architecture**.
-
----
-
-## 📖 Overview
-
-This project allows users to manage daily tasks efficiently.
-You can add, delete, and mark tasks as completed.
-
-It is designed for beginners to understand:
-
-* Backend development with Node.js
-* MVC structure
-* Dynamic rendering with EJS
+A dynamic and responsive Todo Management System built using **Node.js, Express.js, and EJS**. This application allows users to manage daily tasks efficiently with features like adding, editing, deleting, and tracking task progress in real time.
 
 ---
 
-## 🚀 Features
+## 📖 Project Overview
 
-* ✅ Add new tasks
-* ✅ View all tasks
-* ✅ Delete tasks
-* ✅ Mark tasks as completed
-* ✅ Clean and responsive UI
-* ✅ MVC folder structure
+This project simulates a real-world productivity system where users can:
+
+* Add new tasks
+* Edit existing tasks
+* Delete tasks
+* Track task status (Pending → In Progress → Completed)
+
+It focuses on backend logic, UI structure, and CRUD operations.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* ⚙️ Node.js
-* 🚀 Express.js
-* 🧩 EJS Template Engine
-* 🎨 HTML, CSS, JavaScript
-* 🗄️ MongoDB (optional).
+* **Backend:** Node.js
+* **Framework:** Express.js
+* **Template Engine:** EJS
+* **Frontend:** HTML, CSS, Bootstrap
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
-```id="6rmb82"
-todo-app/
+```
+TodoApp
+│── views
+│   ├── partials
+│   │   ├── header.ejs
+│   │   ├── footer.ejs
+│   │
+│   ├── dashboard.ejs
+│   ├── add-task.ejs
+│   ├── edit-task.ejs
 │
-├── models/           # Task schema
-├── views/            # EJS templates
-│   ├── index.ejs
+│── public
+│   ├── css
+│   │   └── style.css
 │
-├── controllers/      # Business logic
-├── routes/           # App routes
-├── public/           # Static files (CSS, JS)
-│
-├── app.js            # Main server file
-├── package.json
-└── README.md
+│── app.js
+│── package.json
 ```
 
 ---
 
-## ⚡ Installation
+## ✨ Features
 
-### 1️⃣ Clone Repository
+* 📊 Dashboard with task statistics
+* ➕ Add new tasks
+* ✏️ Edit existing tasks
+* ❌ Delete tasks
+* 🔄 Update task status
+* 🎨 Responsive UI using Bootstrap
+* 🔖 Status badges (Pending, In Progress, Completed)
 
-```bash id="b48o3g"
+---
+
+## 📌 Task Object Example
+
+```json
+{
+  "id": 1,
+  "title": "Prepare Report",
+  "description": "Complete weekly project report",
+  "priority": "High",
+  "status": "Pending"
+}
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the repository
+
+```
 git clone https://github.com/your-username/todo-app.git
+```
+
+### 2. Navigate to project folder
+
+```
 cd todo-app
 ```
 
----
+### 3. Install dependencies
 
-### 2️⃣ Install Dependencies
-
-```bash id="qhtlw0"
+```
 npm install
 ```
 
----
+### 4. Run the server
 
-### 3️⃣ Run the App
-
-```bash id="jg7s7j"
+```
 node app.js
 ```
 
-or (for development)
-
-```bash id="cdpn70"
-nodemon app.js
-```
-
----
-
-## 🌐 Usage
-
-* Open browser
-* Visit:
+### 5. Open in browser
 
 ```
 http://localhost:3000
 ```
 
-* Add tasks
-* Mark them complete
-* Delete when done
+---
+
+## 🎯 Usage
+
+* Click **Add Task** to create a new task
+* Use **Edit** button to modify task details
+* Click **Delete** to remove task
+* Use **Update Status** to change task progress
 
 ---
 
-## 🧠 How It Works
+## 📸 Screenshots
 
-### 🔹 Model
+* Dashboard Page
+* Add Task Page
+* Edit Task Page
+* Task Status Update
 
-Stores task data (title, description, status)
-
-### 🔹 View
-
-EJS templates display tasks dynamically
-
-### 🔹 Controller
-
-Handles logic (add, delete, update tasks)
+(Add your screenshots here)
 
 ---
 
-## 📈 Future Improvements
+## 💡 Future Enhancements
 
-* 🔐 User Authentication (Login/Register)
-* 📅 Due dates & reminders
-* 🔍 Search & filter tasks
-* 🌙 Dark mode
-* 📊 Dashboard analytics
-
----
-
-## 🤝 output
-
-![alt text](s1-1.png)
-
+* 🔐 User authentication (Login/Register)
+* 🗄️ Database integration (MongoDB)
+* 🌐 REST API support
+* ⚡ Real-time updates using WebSockets
 
 ---
 
-## 📜 License
+## 🏁 Conclusion
 
-This project is for **learning purposes only**.
+This project is a beginner-friendly implementation of a Todo Management System demonstrating core backend concepts, MVC structure, and dynamic UI rendering.
 
 ---
+## outout
+![alt text](s1.png) ![alt text](s2.png)
 
+
+---
 ## 👨‍💻 Author
 
-**Sahil**
+**Sahil Nerpagar**
+MERN Stack Developer
 
 ---
 
 ## ⭐ Support
 
-If you like this project:
-
-⭐ Star the repo
-🍴 Fork it
-📢 Share it
-
----
-
-💡 *Happy Coding!* 🚀
+If you like this project, give it a ⭐ on GitHub!
