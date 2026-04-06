@@ -80,7 +80,7 @@ TodoApp
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/your-username/todo-app.git
+https://github.com/sahil-7878/Node-Js/tree/main/project-2
 ```
 
 ### 2. Navigate to project folder
