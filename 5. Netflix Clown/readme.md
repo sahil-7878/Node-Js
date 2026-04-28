@@ -96,7 +96,7 @@ http://localhost:8001
 
 ## output
 
-![alt text](<Screenshot (238).png>) ![alt text](<Screenshot (237).png>) ![alt text](<Screenshot (236).png>) ![alt text](<Screenshot (235).png>) ![alt text](<Screenshot (234).png>) ![alt text](<Screenshot (233).png>)
+![alt text](<Screenshot (238).png>) ![alt text](<Screenshot (237).png>) ![alt text](<Screenshot (236).png>) ![alt text](<Screenshot (235).png>) 
 
 ## 📦 Requirements
 
