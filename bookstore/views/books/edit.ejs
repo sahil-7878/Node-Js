@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Book</h1>
+
+<form action="/books/edit/<%= book._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label>Book Title</label>
+    <input type="text" name="title" value="<%= book.title %>" required>
+  </div>
+
+  <div class="form-group">
+    <label>Author Name</label>
+    <input type="text" name="author" value="<%= book.author %>" required>
+  </div>
+
+  <div class="form-group">
+    <label>Category</label>
+    <select name="category" required>
+      <% ['Fiction','Non-Fiction','Finance','Science','Technology','Biography','Self-Help','History','Other'].forEach(cat => { %>
+        <option value="<%= cat %>" <%= book.category === cat ? 'selected' : '' %>><%= cat %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Price (₹)</label>
+    <input type="number" name="price" value="<%= book.price %>" required>
+  </div>
+
+  <div class="form-group">
+    <label>Quantity</label>
+    <input type="number" name="quantity" value="<%= book.quantity %>" required>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <textarea name="description" rows="4"><%= book.description %></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Current Image</label><br>
+    <% if (book.coverImage) { %>
+      <img src="/uploads/<%= book.coverImage %>" width="80" height="100" style="margin-bottom:8px; display:block">
+    <% } else { %>
+      <p>No image uploaded</p>
+    <% } %>
+    <label>Replace Image</label>
+    <input type="file" name="coverImage" accept="image/*">
+  </div>
+
+  <button type="submit" class="btn-submit">Update Book</button>
+  <a href="/books" class="btn-cancel">Cancel</a>
+
+</form>
+
+<%- include('../partials/footer') %>

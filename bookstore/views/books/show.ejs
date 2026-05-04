@@ -1,0 +1,49 @@
+<%- include('../partials/header') %>
+
+<a href="/books" class="btn-back">← Back to Books</a>
+
+<div class="book-detail-wrapper">
+  <div class="book-detail">
+
+    <% if (book.coverImage) { %>
+      <img src="/uploads/<%= book.coverImage %>" alt="cover">
+    <% } else { %>
+      <div class="book-detail-no-image">📚</div>
+    <% } %>
+
+    <div class="book-detail-info">
+      <h1><%= book.title %></h1>
+
+      <div class="info-row">
+        <span class="info-label">Author</span>
+        <span class="info-value"><%= book.author %></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Category</span>
+        <span class="info-value"><%= book.category %></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Price</span>
+        <span class="info-value">₹<%= book.price %></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Quantity</span>
+        <span class="info-value"><%= book.quantity %> copies</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Description</span>
+        <span class="info-value"><%= book.description %></span>
+      </div>
+
+      <div class="detail-actions">
+        <a href="/books/edit/<%= book._id %>" class="btn-edit"> Edit Book</a>
+        <form action="/books/delete/<%= book._id %>?_method=DELETE" method="POST" style="display:inline; margin:0; padding:0">
+          <button type="submit" class="btn-delete" onclick="return confirm('Delete this book?')"> Delete Book</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
