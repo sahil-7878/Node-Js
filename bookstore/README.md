@@ -62,7 +62,7 @@ bookstore/
 1. Clone the repository
 
 ```
-git clone <your-repo-link>
+ git clone https://github.com/sahil-7878/Node-Js/tree/main/bookstore
 ```
 
 2. Navigate to project folder
