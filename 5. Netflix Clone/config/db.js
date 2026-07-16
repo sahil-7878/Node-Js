@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/netflix");
-    console.log("MongoDB connected");
+    await mongoose.connect(process.env.MONGODB_URL);
+
+    console.log("MongoDB Connected Successfully");
   } catch (error) {
-    console.log("DB Error:", error.message);
+    console.error("Database Error:", error.message);
+    process.exit(1);
   }
 };
 
