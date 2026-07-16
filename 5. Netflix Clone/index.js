@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const multer = require("multer");
@@ -7,17 +9,24 @@ const Movie = require("./model/movie");
 const movieRouter = require("./routes/movieRoutes");
 
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 
-// Multer setup
+// Database Connection
+connectDB();
+
+// Multer Setup
 const storage = multer.diskStorage({
-  destination: "upload/",
+  destination: (req, file, cb) => {
+    cb(null, "upload/");
+  },
   filename: (req, file, cb) => {
     cb(null, Date.now() + "-" + file.originalname);
-  }
+  },
 });
+
 const upload = multer({ storage });
 
+// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -27,33 +36,55 @@ app.use("/upload", express.static(path.join(__dirname, "upload")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+// Routes
 app.use("/api/movies", movieRouter);
 
+// Home Page
 app.get("/", async (req, res) => {
-  const movies = await Movie.find();
-  res.render("index", { movies });
+  try {
+    const movies = await Movie.find();
+    res.render("index", { movies });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 });
 
+// Movies Page
 app.get("/movies", async (req, res) => {
-  const movies = await Movie.find();
-  res.render("movies", { movies });
+  try {
+    const movies = await Movie.find();
+    res.render("movies", { movies });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 });
 
+// Add Movie Page
 app.get("/add", (req, res) => {
   res.render("add-movie");
 });
 
+// View Movie
 app.get("/view/:id", async (req, res) => {
-  const movie = await Movie.findById(req.params.id);
-  res.render("view", { movie });
+  try {
+    const movie = await Movie.findById(req.params.id);
+    res.render("view", { movie });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 });
 
+// Edit Movie Page
 app.get("/edit/:id", async (req, res) => {
-  const movie = await Movie.findById(req.params.id);
-  res.render("edit-movie", { movie });
+  try {
+    const movie = await Movie.findById(req.params.id);
+    res.render("edit-movie", { movie });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 });
 
-// Update route yahan add kiya
+// Update Movie
 app.post("/api/movies/update/:id", upload.single("poster"), async (req, res) => {
   try {
     const updateData = {
@@ -71,14 +102,14 @@ app.post("/api/movies/update/:id", upload.single("poster"), async (req, res) => 
     }
 
     await Movie.findByIdAndUpdate(req.params.id, updateData);
+
     res.redirect("/movies");
   } catch (err) {
-    res.send("Update failed: " + err.message);
+    res.status(500).send("Update failed: " + err.message);
   }
 });
 
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+// Start Server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
